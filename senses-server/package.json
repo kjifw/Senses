@@ -1,0 +1,33 @@
+{
+  "name": "w",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "./node_modules/.bin/nodemon app.js",
+    "test": "./node_modules/.bin/mocha tests tests/**/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "crypto-js": "^3.1.8",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "hashids": "^1.1.1",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^4.7.0",
+    "mongoose-paginate": "^5.0.3",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.10.2",
+    "nodemon": "^1.11.0",
+    "typings": "^2.0.0"
+  }
+}
