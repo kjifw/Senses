@@ -5,10 +5,10 @@ const authenticateToken = require("../utils/token-authentication");
 
 module.exports = function (data) {
     return {
-        getTopUsers(req, res, next) {
+        getTopUsers(req, res) {
             //var isTokenValid = authenticateToken(req.query.token);
             //if (isTokenValid) {
-            data.getTopUserByKudos()
+            data.getTopUsersByKudos()
                 .then(users => {
                     let usersToReturn = [];
 
@@ -31,6 +31,26 @@ module.exports = function (data) {
             //        message: "Not Authenticated"
             //    });
             //}
+        },
+        getAllUsers(req, res) {
+            data.getAllUsers()
+                .then(users => {
+                    let usersToReturn = [];
+
+                    users.forEach(item => {
+                        usersToReturn.push({
+                            username: item.username,
+                            picture: item.picture,
+                            city: item.city,
+                            kudos: item.kudos
+                        });
+                    });
+
+                    return res.status(200).json({
+                        users: usersToReturn,
+                        token: req.query.token
+                    });
+                });
         },
         getUserInvitationsList(req, res) {
             data.getUserByUsername(req.body.username)

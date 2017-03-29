@@ -15,6 +15,7 @@ module.exports = function (app, data) {
         .put("/profile", userController.updateUserProfile)
         .put("/profile/kudos", userController.updateUserKudos)
         .get("/list/top", userController.getTopUsers)
+        .get("/list/all", userController.getAllUsers)
         .post("/invitations", userController.getUserInvitationsList)
         .post("/invitations/create", userController.createInvitation)
         .post("/invitations/accept", userController.acceptInvitation)

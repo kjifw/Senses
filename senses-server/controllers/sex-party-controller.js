@@ -42,20 +42,23 @@ module.exports = function (data) {
 
                             data.addPartyToUserHistoryList(req.body.host, newParty.uniqueId)
                                 .then(() => {
-                                    return res.status(200).json({
-                                        party: {
-                                            name: newParty.name,
-                                            uniqueId: newParty.uniqueId,
-                                            location: newParty.location,
-                                            startDateTime: newParty.startDateTime,
-                                            host: newParty.host,
-                                            partyType: newParty.partyType,
-                                            image: newParty.image,
-                                            inviteesList: inviteesList,
-                                            participantsList: participantsList,
-                                            rules: rules
-                                        }
-                                    });
+                                    data.updateUserPartyHosted(req.body.host, newParty.uniqueId)
+                                        .then(() => {
+                                            return res.status(200).json({
+                                                party: {
+                                                    name: newParty.name,
+                                                    uniqueId: newParty.uniqueId,
+                                                    location: newParty.location,
+                                                    startDateTime: newParty.startDateTime,
+                                                    host: newParty.host,
+                                                    partyType: newParty.partyType,
+                                                    image: newParty.image,
+                                                    inviteesList: inviteesList,
+                                                    participantsList: participantsList,
+                                                    rules: rules
+                                                }
+                                            });
+                                        });
                                 });
                         });
                 });

@@ -64,7 +64,7 @@ module.exports = function (models) {
                 });
             });
         },
-        getTopUserByKudos() {
+        getTopUsersByKudos() {
             return new Promise((resolve, reject) => {
                 User.find((err, items) => {
                     if (err) {
@@ -113,6 +113,21 @@ module.exports = function (models) {
                     }
                 }, { new: true }, (err, user) => {
                     if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(user);
+                });
+            });
+        },
+        updateUserPartyHosted(username, partyId) {
+            return new Promise((resolve, reject) => {
+                User.findOneAndUpdate({ username: username }, {
+                    $set: {
+                        latestPartyHosted: partyId
+                    }
+                }, { new: true }, (err, user) => {
+                    if(err) {
                         return reject(err);
                     }
 

@@ -52,6 +52,9 @@ let userCredentialsSchema = new mongoose.Schema({
     kudos: {
         type: Number
     },
+    latestPartyHosted: {
+        type: String
+    },
     notificationSetting: {
         type: String
     },
