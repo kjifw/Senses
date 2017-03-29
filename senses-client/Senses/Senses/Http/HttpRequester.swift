@@ -51,10 +51,8 @@ class HttpRequester {
                 let body = try JSONSerialization.jsonObject(with: bodyData!, options: .allowFragments)
                 
                 if((response as! HTTPURLResponse).statusCode >= 400) {
-//                    let message = (body as! Dictionary<String, Any>)["error"] as! String
-//                    weakSelf?.delegate?.didRecieveError(error: .api(message))
-
                     weakSelf?.delegate?.didRecieveError(error: .api("error"))
+                    return
                 }
                 
                 weakSelf?.delegate?.didRecieveData(data: body)

@@ -48,7 +48,15 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
     
     
     @IBAction func register() {
-        
+        let alert = UIAlertController(title: "User Registered!",
+                                      message: "User has been successfully registered",
+                                      preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+            (_) in
+            self.performSegue(withIdentifier: "unwindToSignIn", sender: self)
+        })
+        alert.addAction(OKAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func didRecieveData(data: Any) {
@@ -58,7 +66,6 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
     func didRecieveError(error: HttpError) {
         
     }
-    
 
     /*
     // MARK: - Navigation

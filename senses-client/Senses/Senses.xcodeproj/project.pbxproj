@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1F0534321E8996E000928A50 /* PartyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0534311E8996E000928A50 /* PartyListTableViewController.swift */; };
+		1F0C26461E8BEAAA000C1238 /* PartyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */; };
+		1F0C264A1E8C0967000C1238 /* PartyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C26491E8C0967000C1238 /* PartyListModel.swift */; };
+		1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */; };
 		1F796F371E86D0F50060A2C1 /* senses-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F796F361E86D0F50060A2C1 /* senses-logo.png */; };
 		1FB5B96F1E86AF35008EFA23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5B96E1E86AF35008EFA23 /* AppDelegate.swift */; };
 		1FB5B9741E86AF35008EFA23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB5B9721E86AF35008EFA23 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		1F0534311E8996E000928A50 /* PartyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyListTableViewController.swift; path = ViewControllers/PartyListTableViewController.swift; sourceTree = "<group>"; };
+		1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyDetailsViewController.swift; path = ViewControllers/PartyDetailsViewController.swift; sourceTree = "<group>"; };
+		1F0C26491E8C0967000C1238 /* PartyListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyListModel.swift; path = Models/PartyListModel.swift; sourceTree = "<group>"; };
+		1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPartyViewController.swift; path = ViewControllers/AddPartyViewController.swift; sourceTree = "<group>"; };
 		1F796F361E86D0F50060A2C1 /* senses-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "senses-logo.png"; path = "Images/senses-logo.png"; sourceTree = "<group>"; };
 		1FB5B96B1E86AF35008EFA23 /* Senses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB5B96E1E86AF35008EFA23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 				1FD2E8B81E8934C100D902C7 /* RegisterViewController.swift */,
 				1FD2E8C41E896F2300D902C7 /* StartUpViewController.swift */,
 				1F0534311E8996E000928A50 /* PartyListTableViewController.swift */,
+				1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */,
+				1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -118,6 +126,7 @@
 		1FB5B9821E86B5A5008EFA23 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F0C26491E8C0967000C1238 /* PartyListModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -195,11 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0C26461E8BEAAA000C1238 /* PartyDetailsViewController.swift in Sources */,
 				1FD2E8C51E896F2300D902C7 /* StartUpViewController.swift in Sources */,
 				1FD2E8B91E8934C100D902C7 /* RegisterViewController.swift in Sources */,
 				1FB5B96F1E86AF35008EFA23 /* AppDelegate.swift in Sources */,
 				1FD2E8BD1E89364600D902C7 /* HttpRequester.swift in Sources */,
+				1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */,
 				1FD2E8BB1E8934FA00D902C7 /* SignInViewController.swift in Sources */,
+				1F0C264A1E8C0967000C1238 /* PartyListModel.swift in Sources */,
 				1FD2E8BF1E89422400D902C7 /* HttpRequesterDelegateswift.swift in Sources */,
 				1F0534321E8996E000928A50 /* PartyListTableViewController.swift in Sources */,
 			);

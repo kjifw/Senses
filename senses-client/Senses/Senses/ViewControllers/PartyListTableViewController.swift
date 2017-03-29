@@ -24,7 +24,7 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
         }
     }
     
-    var count = 10
+    var parties: [Dictionary<String, Any>] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,35 +32,35 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "party-list-cell")
         
         self.http?.delegate = self
         
         self.http?.get(fromUrl: "\(self.url)/party/list/closest")
     }
 
+    func showNext() {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func didRecieveData(data: Any) {
-//        let dataArray = data as! [Dictionary<String, Any>]
-//        
-//        self.count = dataArray.count
-        print(data)
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
+        let partiesList = data as! Dictionary<String, Any>
+        
+        DispatchQueue.main.async {
+            if (partiesList["parties"] != nil) {
+                let parties = partiesList["parties"] as! [Dictionary<String, Any>]
+                self.parties = parties
+            }
+            self.tableView.reloadData()
+            // print(parties)
+        }
     }
     
-    func didRecieveError(error: HttpError) {
-        
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,17 +70,19 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.count
+        return self.parties.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "party-list-cell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = self.parties[indexPath.row]["name"] as! String?
 
         return cell
     }
  
+    @IBAction func returnToPartyListTableViewController(segue: UIStoryboardSegue) {
+    }
 
     /*
     // Override to support conditional editing of the table view.
