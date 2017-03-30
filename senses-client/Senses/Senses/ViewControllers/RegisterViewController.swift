@@ -37,10 +37,10 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.http?.delegate = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,33 +48,121 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
     
     
     @IBAction func register() {
-        let alert = UIAlertController(title: "User Registered!",
-                                      message: "User has been successfully registered",
-                                      preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-            (_) in
-            self.performSegue(withIdentifier: "unwindToSignIn", sender: self)
-        })
-        alert.addAction(OKAction)
-        self.present(alert, animated: true, completion: nil)
+        let username = self.username.text
+        let email = self.email.text
+        let password = self.password.text
+        let age = self.age.text
+        let gender = self.gender.text
+        let genderPreferences = self.genderPreferences.text
+        
+        let bodyDict = [
+            "username": username,
+            "email": email,
+            "password": password,
+            "age": age,
+            "gender": gender,
+            "genderPreferences": genderPreferences
+        ]
+        
+        let headers = [
+            "Content-Type": "application/json"
+        ]
+        
+        if (self.areFieldsValid()) {
+            self.http?.post(toUrl: "\(self.url)/user/register", withBody: bodyDict, andHeaders: headers)
+        }
+    }
+    
+    private func areFieldsValid() -> Bool {
+        let username = self.username.text
+        let email = self.email.text
+        let password = self.password.text
+        let repeatPassword = self.repeatPassword.text
+        let age = self.age.text
+        let gender = self.gender.text
+        let genderPreferences = self.genderPreferences.text
+        
+        if (username?.isEmpty)! {
+            self.displayAlertMessage(withTitle: "Username", andMessage: "Username cannot be empty", andHandler: {
+                (_) in
+            })
+            return false
+        } else if (email?.isEmpty)! {
+            self.displayAlertMessage(withTitle: "Email", andMessage: "Email cannot be empty", andHandler: {
+                (_) in
+            })
+            return false
+        } else if (password?.isEmpty)! {
+            self.displayAlertMessage(withTitle: "Password", andMessage: "Password cannot be empty", andHandler: {
+                (_) in
+            })
+            return false
+        } else if (repeatPassword?.isEmpty)! {
+            self.displayAlertMessage(withTitle: "Repeat Password", andMessage: "Repead password cannot be empty", andHandler: {
+                (_) in
+            })
+            return false
+        } else if (password != repeatPassword) {
+            self.displayAlertMessage(withTitle: "Password", andMessage: "Password and repeat password must match", andHandler: {
+                (_) in
+            })
+            return false
+        } else if (age?.isEmpty)! {
+            self.displayAlertMessage(withTitle: "Age", andMessage: "Age cannot be empty", andHandler: {
+                (_) in
+            })
+        
+//            var currentAge = 0
+//            if(age != nil) {
+//                currentAge = Int(age!)!
+//            }
+//            
+//            if(currentAge < 18 || currentAge > 58) {
+//                self.displayAlertMessage(withTitle: "Age", andMessage: "Age must be between 18 and 58", andHandler: {
+//                    (_) in
+//                })
+//            }
+            return false
+        } else if (gender?.isEmpty)! {
+            self.displayAlertMessage(withTitle: "Gender", andMessage: "Gender cannot be empty", andHandler: {
+                (_) in
+            })
+            return false
+        } else if (genderPreferences?.isEmpty)! {
+            self.displayAlertMessage(withTitle: "Gender Preferences", andMessage: "Gender preferences cannot be empty", andHandler: {
+                (_) in
+            })
+            return false
+        }
+        
+        return true
     }
     
     func didRecieveData(data: Any) {
-        
+        DispatchQueue.main.async {
+            self.displayAlertMessage(withTitle: "Registration Successfull", andMessage: "All user data valid. You can login now.", andHandler: {
+                (_) in
+                self.performSegue(withIdentifier: "unwindToSignIn", sender: self)
+            })
+        }
     }
     
     func didRecieveError(error: HttpError) {
-        
+        DispatchQueue.main.async {
+            self.displayAlertMessage(withTitle: "Registration unsuccessfull", andMessage: "User already exists.", andHandler: {
+                (_) in
+            })
+        }
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

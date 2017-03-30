@@ -29,6 +29,9 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.http?.delegate = self
     }
     
@@ -41,39 +44,23 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
         let username = self.username.text
         let password = self.password.text
         
-        let bodyDict = [
-            "username": username,
-            "password": password
-        ]
-        
-        let headers = [
-            "Content-Type": "application/json"
-        ]
-        
-        self.http?.post(toUrl: "\(self.url)/user/login", withBody: bodyDict, andHeaders: headers)
+        if(username == nil || username == "" || password == nil || password == "") {
+            self.displayAlertMessage(withTitle: "Fileds Error", andMessage: "All fields must be filled.", andHandler: {
+            (_) in
+            })
+        } else {
+            let bodyDict = [
+                "username": username,
+                "password": password
+            ]
+            
+            let headers = [
+                "Content-Type": "application/json"
+            ]
+            
+            self.http?.post(toUrl: "\(self.url)/user/login", withBody: bodyDict, andHeaders: headers)
+        }
     }
-    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if(identifier == "GoToPartyList") {
-//            let username = self.username.text
-//            let password = self.password.text
-//            
-//            if(username != nil && username != "" && password != nil && password != "") {
-//                let alert = UIAlertController(title: "User data Error!",
-//                                              message: "Username and/or password cannot be empty",
-//                                              preferredStyle: .alert)
-//                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-//                    (_) in
-//                })
-//                
-//                alert.addAction(OKAction)
-//                self.present(alert, animated: true, completion: nil)
-//                return false
-//            }
-//        }
-//        
-//        return true
-//    }
     
     func didRecieveData(data: Any) {
         //     let nav = self.navigationController
@@ -85,25 +72,27 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
         //            stack?.remove(at: 0)
         //
         //            nav?.setViewControllers(stack!, animated: false)
+        DispatchQueue.main.async {
         let userCredentials = data as! Dictionary<String, Any>
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         appDelegate.username = userCredentials["username"] as! String?
         appDelegate.token = userCredentials["token"] as! String?
+        
+        self.displayAlertMessage(withTitle: "Login Successfull", andMessage: "All user data valid. Enjoy.", andHandler: {
+            (_) in
+                self.performSegue(withIdentifier: "GoToPartyList", sender: self)
+            })
+        }
     }
     
     func didRecieveError(error: HttpError) {
-//        print(error)
-//        let alert = UIAlertController(title: "User data Error!",
-//                                      message: "Username and/or password incorrect",
-//                                      preferredStyle: .alert)
-//        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-//            (_) in
-//        })
-//        
-//        alert.addAction(OKAction)
-//        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.displayAlertMessage(withTitle: "Login Unsuccessfull", andMessage: "Invalid username or password.", andHandler: {
+                (_) in
+            })
+        }
     }
     
     @IBAction func returnToSignInViewController(segue: UIStoryboardSegue) {

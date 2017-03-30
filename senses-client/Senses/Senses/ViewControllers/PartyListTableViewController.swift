@@ -24,7 +24,7 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
         }
     }
     
-    var parties: [Dictionary<String, Any>] = []
+    var parties: [PartyDetailsModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +38,6 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
         
         self.http?.get(fromUrl: "\(self.url)/party/list/closest")
     }
-
-    func showNext() {
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,8 +49,12 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
         
         DispatchQueue.main.async {
             if (partiesList["parties"] != nil) {
-                let parties = partiesList["parties"] as! [Dictionary<String, Any>]
-                self.parties = parties
+                let partiesDictArr = partiesList["parties"] as! [Dictionary<String, Any>]
+            
+                partiesDictArr.forEach({ item in
+                    self.parties.append(PartyDetailsModel.init(withDict: item))
+                })
+                
             }
             self.tableView.reloadData()
             // print(parties)
@@ -76,7 +76,7 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "party-list-cell", for: indexPath)
 
-        cell.textLabel?.text = self.parties[indexPath.row]["name"] as! String?
+        cell.textLabel?.text = self.parties[indexPath.row].name
 
         return cell
     }
@@ -84,6 +84,15 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
     @IBAction func returnToPartyListTableViewController(segue: UIStoryboardSegue) {
     }
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextVC = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "PartyDetailsVC") as! PartyDetailsViewController
+        
+        nextVC.party = self.parties[indexPath.row]
+        self.show(nextVC, sender: self)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
