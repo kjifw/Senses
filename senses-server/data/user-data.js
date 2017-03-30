@@ -23,6 +23,12 @@ module.exports = function (models) {
             const salt = hashing.generateSalt();
             const passHash = hashing.hashPassword(salt, user.password);
 
+            let genderPrefs = []
+
+            user.genderPreferences.split(", ").forEach(item => {
+                genderPrefs.push({ gender: item });
+            });
+
             const newUser = new User({
                 username: user.username,
                 email: user.email,
@@ -30,12 +36,13 @@ module.exports = function (models) {
                 salt,
                 picture: user.picture || "",
                 city: user.city || "",
-                age: user.age || 18,
-                gender: user.gender || "male",
-                genderPreferences: user.genderPreferences || [],
-                position: user.position || "top",
+                age: user.age,
+                gender: user.gender,
+                genderPreferences: genderPrefs,
+                position: user.position,
                 about: user.about || "",
                 kudos: user.kudos || 0,
+                latestPartyHosted: "",
                 notificationSetting: user.notificationSetting || "notifications on",
                 dayNightSetting: user.dayNightSetting || "day",
                 invitationsList: user.invitationsList || [],
@@ -48,7 +55,7 @@ module.exports = function (models) {
                     if (err) {
                         return reject(err);
                     }
-
+                    console.log("user should be saved to db");
                     return resolve(newUser);
                 });
             });
@@ -127,7 +134,7 @@ module.exports = function (models) {
                         latestPartyHosted: partyId
                     }
                 }, { new: true }, (err, user) => {
-                    if(err) {
+                    if (err) {
                         return reject(err);
                     }
 

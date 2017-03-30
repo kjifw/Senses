@@ -46,34 +46,34 @@ module.exports = function (data) {
                 username: req.body.username,
                 email: req.body.email,
                 password: req.body.password,
-                // age: req.body.age,
-                // gender: req.body.gender,
-                // genderPreferences: req.body.genderPreferences,
+                age: req.body.age,
+                gender: req.body.gender,
+                genderPreferences: req.body.genderPreferences,
                 // position: req.body.position,
                 token: req.body.token
             }
 
             data.getUserByUsername(req.body.username)
                 .then(existingUser => {
-                    if (existingUser === null || existingUser === undefined) {
+                    if (existingUser == null || existingUser == undefined) {
                         data.createNewUser(user)
-                            .then(dbUser => {
-                                req.login(dbUser, error => {
+                            .then(newUser => {
+                                req.login(newUser, error => {
                                     if (error) {
                                         next(error);
                                         return;
                                     }
                                 });
-
+                                console.log("user registered");
                                 return res.status(200).json({
-                                    message: "user successfully created",
+                                    message: "User successfully created.",
                                     user: {
-                                        username: dbUser.username
+                                        username: newUser.username
                                     }
                                 });
                             })
                             .catch(error => res.status(409).json({
-                                message: "User already exists."
+                                message: "User already existss."
                             }));
                     } else {
                         return res.status(409).json({

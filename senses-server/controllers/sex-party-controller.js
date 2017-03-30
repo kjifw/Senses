@@ -66,8 +66,43 @@ module.exports = function (data) {
         getClosestParties(req, res) {
             data.getClosestParties(req.body.location)
                 .then(parties => {
+                    let partiesToReturn = [];
+
+                    parties.forEach(party => {
+                        let inviteesList = [];
+                        let participantsList = [];
+                        let rules = [];
+
+                        party.inviteesList.forEach(item => {
+                            inviteesList.push(item.inviteeUsername);
+                        });
+
+                        party.participantsList.forEach(item => {
+                            participantsList.push(item.participantUsername);
+                        });
+
+                        party.rules.forEach(item => {
+                            rules.push(item.rule);
+                        });
+
+                        let partyToAdd = {
+                            name: party.name,
+                            uniqueId: party.uniqueId,
+                            location: party.location,
+                            startDateTime: party.startDateTime,
+                            host: party.host,
+                            partyType: party.partyType,
+                            image: party.image,
+                            inviteesList: inviteesList,
+                            participantsList: participantsList,
+                            rules: rules
+                        };
+
+                        partiesToReturn.push(partyToAdd);
+                    });
+
                     return res.status(200).json({
-                        parties: parties
+                        parties: partiesToReturn
                     });
                 });
         },
