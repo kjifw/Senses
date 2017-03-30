@@ -23,6 +23,7 @@
 		1FEDD4E21E8D1B9700567E1C /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEDD4E11E8D1B9700567E1C /* ViewControllerExtensions.swift */; };
 		1FEDD4E41E8D41CC00567E1C /* PartyDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEDD4E31E8D41CC00567E1C /* PartyDetailsModel.swift */; };
 		1FEDD4E71E8D45C000567E1C /* PartyDetailsModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEDD4E61E8D45C000567E1C /* PartyDetailsModelExtensions.swift */; };
+		1FEDD4E91E8D8E7F00567E1C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEDD4E81E8D8E7F00567E1C /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		1FEDD4E11E8D1B9700567E1C /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerExtensions.swift; path = ViewControllers/Extensions/ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		1FEDD4E31E8D41CC00567E1C /* PartyDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyDetailsModel.swift; path = Models/PartyDetailsModel.swift; sourceTree = "<group>"; };
 		1FEDD4E61E8D45C000567E1C /* PartyDetailsModelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyDetailsModelExtensions.swift; path = Models/Extensions/PartyDetailsModelExtensions.swift; sourceTree = "<group>"; };
+		1FEDD4E81E8D8E7F00567E1C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				1F0534311E8996E000928A50 /* PartyListTableViewController.swift */,
 				1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */,
 				1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */,
+				1FEDD4E81E8D8E7F00567E1C /* MenuViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				1FD2E8C51E896F2300D902C7 /* StartUpViewController.swift in Sources */,
 				1FD2E8B91E8934C100D902C7 /* RegisterViewController.swift in Sources */,
 				1FB5B96F1E86AF35008EFA23 /* AppDelegate.swift in Sources */,
+				1FEDD4E91E8D8E7F00567E1C /* MenuViewController.swift in Sources */,
 				1FD2E8BD1E89364600D902C7 /* HttpRequester.swift in Sources */,
 				1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */,
 				1FD2E8BB1E8934FA00D902C7 /* SignInViewController.swift in Sources */,

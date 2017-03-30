@@ -32,6 +32,10 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
+        self.title = "Party List"
+        
+        self.loadingScreenStart()
+        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "party-list-cell")
         
         self.http?.delegate = self
@@ -45,19 +49,18 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
     }
     
     func didRecieveData(data: Any) {
-        let partiesList = data as! Dictionary<String, Any>
-        
         DispatchQueue.main.async {
+            let partiesList = data as! Dictionary<String, Any>
             if (partiesList["parties"] != nil) {
                 let partiesDictArr = partiesList["parties"] as! [Dictionary<String, Any>]
             
                 partiesDictArr.forEach({ item in
                     self.parties.append(PartyDetailsModel.init(withDict: item))
                 })
-                
             }
+            
             self.tableView.reloadData()
-            // print(parties)
+            self.loadingScreenStop()
         }
     }
     

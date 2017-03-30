@@ -22,6 +22,8 @@ class PartyDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Party Details"
+        
         self.partyName.text = self.party?.name
         self.partyLocation.text = self.party?.location
         self.partyHost.text = self.party?.host

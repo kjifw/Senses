@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -272,7 +273,84 @@
             </objects>
             <point key="canvasLocation" x="885.60000000000002" y="122.78860569715144"/>
         </scene>
-        <!--List of Parties-->
+        <!--Menu View Controller-->
+        <scene sceneID="7AN-hH-VTh">
+            <objects>
+                <viewController id="CWO-cY-GlQ" customClass="MenuViewController" customModule="Senses" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cg7-13-7hQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="A8z-0B-8a3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wlq-f8-p9f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rk2-J3-867">
+                                <rect key="frame" x="16" y="132" width="164" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="V9k-oC-zfT"/>
+                                    <constraint firstAttribute="height" constant="67" id="yUN-1Y-kgT"/>
+                                </constraints>
+                                <state key="normal" title="Create Party"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCP-lr-PAG">
+                                <rect key="frame" x="195" y="132" width="164" height="67"/>
+                                <state key="normal" title="View Parties"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFs-0W-QN9">
+                                <rect key="frame" x="195" y="381" width="164" height="67"/>
+                                <state key="normal" title="Party History"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7B-SL-iPx">
+                                <rect key="frame" x="16" y="250" width="164" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="KNP-Px-AqP"/>
+                                </constraints>
+                                <state key="normal" title="View Top Users"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dO-RG-ZLz">
+                                <rect key="frame" x="195" y="250" width="164" height="67"/>
+                                <state key="normal" title="View All Users"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLr-Ht-ad2">
+                                <rect key="frame" x="16" y="381" width="164" height="67"/>
+                                <state key="normal" title="Invitations List"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rk2-J3-867" firstAttribute="trailing" secondItem="i7B-SL-iPx" secondAttribute="trailing" id="02V-wb-Vg2"/>
+                            <constraint firstItem="DFs-0W-QN9" firstAttribute="baseline" secondItem="yLr-Ht-ad2" secondAttribute="firstBaseline" id="2vp-R8-LWi"/>
+                            <constraint firstItem="i7B-SL-iPx" firstAttribute="top" secondItem="1dO-RG-ZLz" secondAttribute="top" id="4Ao-ng-LHa"/>
+                            <constraint firstItem="rk2-J3-867" firstAttribute="leading" secondItem="i7B-SL-iPx" secondAttribute="leading" id="4zu-ue-NXG"/>
+                            <constraint firstItem="OCP-lr-PAG" firstAttribute="leading" secondItem="rk2-J3-867" secondAttribute="trailing" constant="15" id="5nS-F6-GVF"/>
+                            <constraint firstItem="i7B-SL-iPx" firstAttribute="trailing" secondItem="yLr-Ht-ad2" secondAttribute="trailing" id="C3C-M9-kFm"/>
+                            <constraint firstItem="yLr-Ht-ad2" firstAttribute="baseline" secondItem="DFs-0W-QN9" secondAttribute="firstBaseline" id="Crl-mC-be6"/>
+                            <constraint firstItem="i7B-SL-iPx" firstAttribute="baseline" secondItem="1dO-RG-ZLz" secondAttribute="firstBaseline" id="GbW-Hf-Xb1"/>
+                            <constraint firstItem="OCP-lr-PAG" firstAttribute="baseline" secondItem="rk2-J3-867" secondAttribute="firstBaseline" id="GpY-vL-717"/>
+                            <constraint firstItem="i7B-SL-iPx" firstAttribute="top" secondItem="rk2-J3-867" secondAttribute="bottom" constant="51" id="ILW-0o-FqK"/>
+                            <constraint firstItem="OCP-lr-PAG" firstAttribute="trailing" secondItem="wlq-f8-p9f" secondAttribute="trailingMargin" id="KaR-Il-qTr"/>
+                            <constraint firstItem="rk2-J3-867" firstAttribute="top" secondItem="OCP-lr-PAG" secondAttribute="top" id="Lc1-aK-Ik8"/>
+                            <constraint firstItem="rk2-J3-867" firstAttribute="baseline" secondItem="OCP-lr-PAG" secondAttribute="firstBaseline" id="NiY-ve-bpr"/>
+                            <constraint firstItem="rk2-J3-867" firstAttribute="top" secondItem="Cg7-13-7hQ" secondAttribute="bottom" constant="112" id="WeZ-bO-5Oh"/>
+                            <constraint firstItem="yLr-Ht-ad2" firstAttribute="top" secondItem="DFs-0W-QN9" secondAttribute="top" id="ZZw-dw-ppL"/>
+                            <constraint firstItem="A8z-0B-8a3" firstAttribute="top" secondItem="yLr-Ht-ad2" secondAttribute="bottom" constant="219" id="Zre-hK-3PR"/>
+                            <constraint firstItem="1dO-RG-ZLz" firstAttribute="leading" secondItem="DFs-0W-QN9" secondAttribute="leading" id="cri-3n-xYS"/>
+                            <constraint firstItem="yLr-Ht-ad2" firstAttribute="top" secondItem="i7B-SL-iPx" secondAttribute="bottom" constant="64" id="em1-rK-1xH"/>
+                            <constraint firstItem="1dO-RG-ZLz" firstAttribute="baseline" secondItem="i7B-SL-iPx" secondAttribute="firstBaseline" id="f7o-bB-dQp"/>
+                            <constraint firstItem="i7B-SL-iPx" firstAttribute="leading" secondItem="yLr-Ht-ad2" secondAttribute="leading" id="gyz-6C-vuk"/>
+                            <constraint firstItem="1dO-RG-ZLz" firstAttribute="trailing" secondItem="DFs-0W-QN9" secondAttribute="trailing" id="jE1-rZ-2St"/>
+                            <constraint firstItem="OCP-lr-PAG" firstAttribute="trailing" secondItem="1dO-RG-ZLz" secondAttribute="trailing" id="pTq-Bb-XXA"/>
+                            <constraint firstItem="OCP-lr-PAG" firstAttribute="leading" secondItem="1dO-RG-ZLz" secondAttribute="leading" id="w2V-fm-u1U"/>
+                            <constraint firstItem="rk2-J3-867" firstAttribute="leading" secondItem="wlq-f8-p9f" secondAttribute="leadingMargin" id="zsJ-SD-cvu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9lT-m9-Nbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="858"/>
+        </scene>
+        <!--Party List Table View Controller-->
         <scene sceneID="uvE-tZ-Kmg">
             <objects>
                 <tableViewController id="I52-yJ-57i" customClass="PartyListTableViewController" customModule="Senses" customModuleProvider="target" sceneMemberID="viewController">
@@ -295,17 +373,10 @@
                             <outlet property="delegate" destination="I52-yJ-57i" id="85M-1F-eSD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List of Parties" id="Go1-w8-7gi">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="Z5l-Tg-JOM">
-                            <connections>
-                                <segue destination="vmt-Md-UPl" kind="show" id="w6l-v3-FLD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBw-gL-4l6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="826"/>
+            <point key="canvasLocation" x="886" y="858"/>
         </scene>
         <!--Party Details View Controller-->
         <scene sceneID="9TF-23-D0N">
@@ -480,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CG3-Ba-bxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672.8" y="824.43778110944538"/>
+            <point key="canvasLocation" x="1726" y="858"/>
         </scene>
         <!--Add Party View Controller-->
         <scene sceneID="3CK-ru-GAI">
@@ -512,7 +583,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QL-yd-aea" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uYI-K8-jh5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="885.60000000000002" y="824.43778110944538"/>
+            <point key="canvasLocation" x="-655" y="858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bVo-ZG-fP5">

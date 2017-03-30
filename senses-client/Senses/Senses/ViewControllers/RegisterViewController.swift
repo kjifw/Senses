@@ -69,6 +69,7 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
         ]
         
         if (self.areFieldsValid()) {
+            self.loadingScreenStart()
             self.http?.post(toUrl: "\(self.url)/user/register", withBody: bodyDict, andHeaders: headers)
         }
     }
@@ -140,6 +141,7 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
     
     func didRecieveData(data: Any) {
         DispatchQueue.main.async {
+            self.loadingScreenStop()
             self.displayAlertMessage(withTitle: "Registration Successfull", andMessage: "All user data valid. You can login now.", andHandler: {
                 (_) in
                 self.performSegue(withIdentifier: "unwindToSignIn", sender: self)
@@ -149,6 +151,7 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
     
     func didRecieveError(error: HttpError) {
         DispatchQueue.main.async {
+            self.loadingScreenStop()
             self.displayAlertMessage(withTitle: "Registration unsuccessfull", andMessage: "User already exists.", andHandler: {
                 (_) in
             })

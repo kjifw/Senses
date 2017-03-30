@@ -46,9 +46,11 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
         
         if(username == nil || username == "" || password == nil || password == "") {
             self.displayAlertMessage(withTitle: "Fileds Error", andMessage: "All fields must be filled.", andHandler: {
-            (_) in
+                (_) in
             })
         } else {
+            self.loadingScreenStart()
+            
             let bodyDict = [
                 "username": username,
                 "password": password
@@ -73,15 +75,16 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
         //
         //            nav?.setViewControllers(stack!, animated: false)
         DispatchQueue.main.async {
-        let userCredentials = data as! Dictionary<String, Any>
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        appDelegate.username = userCredentials["username"] as! String?
-        appDelegate.token = userCredentials["token"] as! String?
-        
-        self.displayAlertMessage(withTitle: "Login Successfull", andMessage: "All user data valid. Enjoy.", andHandler: {
-            (_) in
+            let userCredentials = data as! Dictionary<String, Any>
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            appDelegate.username = userCredentials["username"] as! String?
+            appDelegate.token = userCredentials["token"] as! String?
+            
+            self.loadingScreenStop()
+            self.displayAlertMessage(withTitle: "Login Successfull", andMessage: "All user data valid. Enjoy.", andHandler: {
+                (_) in
                 self.performSegue(withIdentifier: "GoToPartyList", sender: self)
             })
         }
@@ -89,6 +92,7 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
     
     func didRecieveError(error: HttpError) {
         DispatchQueue.main.async {
+            self.loadingScreenStop()
             self.displayAlertMessage(withTitle: "Login Unsuccessfull", andMessage: "Invalid username or password.", andHandler: {
                 (_) in
             })
