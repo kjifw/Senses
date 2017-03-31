@@ -55,7 +55,7 @@ module.exports = function (models) {
                     if (err) {
                         return reject(err);
                     }
-                    console.log("user should be saved to db");
+                    
                     return resolve(newUser);
                 });
             });

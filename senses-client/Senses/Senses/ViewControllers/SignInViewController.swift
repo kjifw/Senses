@@ -65,27 +65,28 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
     }
     
     func didRecieveData(data: Any) {
-        //     let nav = self.navigationController
-        //     if (nav != nil) {
-        //            var stack = nav?.viewControllers
-        //
-        //            print(stack?.count as Any)
-        //
-        //            stack?.remove(at: 0)
-        //
-        //            nav?.setViewControllers(stack!, animated: false)
         DispatchQueue.main.async {
+            
             let userCredentials = data as! Dictionary<String, Any>
             
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let defaults = UserDefaults.standard
             
-            appDelegate.username = userCredentials["username"] as! String?
-            appDelegate.token = userCredentials["token"] as! String?
+            defaults.set(userCredentials["username"] as! String, forKey: "username")
+            defaults.set(userCredentials["token"] as! String, forKey: "token")
+            
+            if(userCredentials["invitationsList"] != nil) {
+                let invitationsList = userCredentials["invitationsList"] as! [String?]
+                defaults.set(invitationsList, forKey: "invitationsList")
+            } else {
+                defaults.set([], forKey: "invitationsList")
+            }
+            
+            defaults.synchronize()
             
             self.loadingScreenStop()
             self.displayAlertMessage(withTitle: "Login Successfull", andMessage: "All user data valid. Enjoy.", andHandler: {
                 (_) in
-                self.performSegue(withIdentifier: "GoToPartyList", sender: self)
+                self.performSegue(withIdentifier: "GoToMenuController", sender: self)
             })
         }
     }
@@ -101,13 +102,6 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
     
     @IBAction func returnToSignInViewController(segue: UIStoryboardSegue) {
     }
-    
-    //     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if(segue.identifier == "GoToPartyList") {
-    //            let nextVC = segue.destination as! PartyListTableViewController
-    //            nextVC.data = self.data
-    //        }
-    //     }
 }
 
 

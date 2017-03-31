@@ -17,10 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var http: HttpRequester?
     
-    var username: String?
-    
-    var token: String?
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         self.http = HttpRequester()

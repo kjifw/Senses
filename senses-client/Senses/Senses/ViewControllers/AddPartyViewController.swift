@@ -12,8 +12,6 @@ class AddPartyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +25,7 @@ class AddPartyViewController: UIViewController {
                                       preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             (_) in
-            self.performSegue(withIdentifier: "unwindToPartyList", sender: self)
+            self.performSegue(withIdentifier: "unwindToMenuController", sender: self)
         })
         alert.addAction(OKAction)
         self.present(alert, animated: true, completion: nil)

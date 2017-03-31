@@ -1,69 +1,28 @@
 //
-//  PartyListTableViewController.swift
+//  PartyInformationTableViewController.swift
 //  Senses
 //
-//  Created by Jeff on 3/27/17.
+//  Created by Jeff on 3/31/17.
 //  Copyright © 2017 Telerik Academy. All rights reserved.
 //
 
 import UIKit
 
-class PartyListTableViewController: UITableViewController, HttpRequesterDelegate {
+class PartyInformationTableViewController: UITableViewController {
 
-    var url: String {
-        get {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            return appDelegate.baseUrl
-        }
-    }
-    
-    var http: HttpRequester? {
-        get {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            return appDelegate.http
-        }
-    }
-    
-    var parties: [PartyDetailsModel] = []
+    var users: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        self.title = "Party List"
-        
-        self.loadingScreenStart()
-        
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "party-list-cell")
-        
-        self.http?.delegate = self
-        
-        self.http?.get(fromUrl: "\(self.url)/party/list/closest")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "party-user-list-cell")
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func didRecieveData(data: Any) {
-        DispatchQueue.main.async {
-            let partiesList = data as! Dictionary<String, Any>
-            if (partiesList["parties"] != nil) {
-                let partiesDictArr = partiesList["parties"] as! [Dictionary<String, Any>]
-            
-                partiesDictArr.forEach({ item in
-                    self.parties.append(PartyDetailsModel.init(withDict: item))
-                })
-            }
-            
-            self.tableView.reloadData()
-            self.loadingScreenStop()
-        }
-    }
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,25 +32,17 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.parties.count
+        return self.users.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "party-list-cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "party-user-list-cell", for: indexPath)
 
-        cell.textLabel?.text = self.parties[indexPath.row].name
+        cell.textLabel?.text = users[indexPath.row]
 
         return cell
     }
- 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextVC = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "PartyDetailsVC") as! PartyDetailsViewController
-        
-        nextVC.party = self.parties[indexPath.row]
-        self.show(nextVC, sender: self)
-    }
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

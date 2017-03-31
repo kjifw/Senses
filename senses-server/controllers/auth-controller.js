@@ -26,14 +26,18 @@ module.exports = function (data) {
 
                     var token = jwt.encode({ username: req.body.username }, config.jwtSecret);
 
+                    let listToReturn = [];
+
+                    user.invitationsList.forEach(item => {
+                        listToReturn.push(item.partyId);
+                    });
+
                     data.getUserByUsername(req.body.username)
                         .then(dbUser => {
                             return res.status(200).json({
-                                user: {
-                                    username: req.user.username,
-                                    invitationsList: dbUser.invitationsList,
-                                    token: token
-                                }
+                                username: req.user.username,
+                                invitationsList: listToReturn,
+                                token: token
                             });
                         });
                 });
@@ -64,7 +68,7 @@ module.exports = function (data) {
                                         return;
                                     }
                                 });
-                                console.log("user registered");
+
                                 return res.status(200).json({
                                     message: "User successfully created.",
                                     user: {

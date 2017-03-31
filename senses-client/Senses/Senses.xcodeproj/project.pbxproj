@@ -10,7 +10,14 @@
 		1F0534321E8996E000928A50 /* PartyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0534311E8996E000928A50 /* PartyListTableViewController.swift */; };
 		1F0C26461E8BEAAA000C1238 /* PartyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */; };
 		1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */; };
+		1F426D441E8EB067005D380C /* PartyInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F426D431E8EB066005D380C /* PartyInformationTableViewController.swift */; };
 		1F796F371E86D0F50060A2C1 /* senses-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F796F361E86D0F50060A2C1 /* senses-logo.png */; };
+		1F7BCFAB1E8EEC1A007E0702 /* all users.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFA51E8EEC1A007E0702 /* all users.png */; };
+		1F7BCFAC1E8EEC1A007E0702 /* create party.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFA61E8EEC1A007E0702 /* create party.png */; };
+		1F7BCFAD1E8EEC1A007E0702 /* invitations list.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFA71E8EEC1A007E0702 /* invitations list.png */; };
+		1F7BCFAE1E8EEC1A007E0702 /* party history.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFA81E8EEC1A007E0702 /* party history.png */; };
+		1F7BCFAF1E8EEC1A007E0702 /* party listy.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFA91E8EEC1A007E0702 /* party listy.png */; };
+		1F7BCFB01E8EEC1A007E0702 /* top users list.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFAA1E8EEC1A007E0702 /* top users list.png */; };
 		1FB5B96F1E86AF35008EFA23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5B96E1E86AF35008EFA23 /* AppDelegate.swift */; };
 		1FB5B9741E86AF35008EFA23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB5B9721E86AF35008EFA23 /* Main.storyboard */; };
 		1FB5B9761E86AF35008EFA23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB5B9751E86AF35008EFA23 /* Assets.xcassets */; };
@@ -30,7 +37,14 @@
 		1F0534311E8996E000928A50 /* PartyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyListTableViewController.swift; path = ViewControllers/PartyListTableViewController.swift; sourceTree = "<group>"; };
 		1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyDetailsViewController.swift; path = ViewControllers/PartyDetailsViewController.swift; sourceTree = "<group>"; };
 		1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPartyViewController.swift; path = ViewControllers/AddPartyViewController.swift; sourceTree = "<group>"; };
+		1F426D431E8EB066005D380C /* PartyInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyInformationTableViewController.swift; path = ViewControllers/PartyInformationTableViewController.swift; sourceTree = "<group>"; };
 		1F796F361E86D0F50060A2C1 /* senses-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "senses-logo.png"; path = "Images/senses-logo.png"; sourceTree = "<group>"; };
+		1F7BCFA51E8EEC1A007E0702 /* all users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "all users.png"; path = "Images/all users.png"; sourceTree = "<group>"; };
+		1F7BCFA61E8EEC1A007E0702 /* create party.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "create party.png"; path = "Images/create party.png"; sourceTree = "<group>"; };
+		1F7BCFA71E8EEC1A007E0702 /* invitations list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "invitations list.png"; path = "Images/invitations list.png"; sourceTree = "<group>"; };
+		1F7BCFA81E8EEC1A007E0702 /* party history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "party history.png"; path = "Images/party history.png"; sourceTree = "<group>"; };
+		1F7BCFA91E8EEC1A007E0702 /* party listy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "party listy.png"; path = "Images/party listy.png"; sourceTree = "<group>"; };
+		1F7BCFAA1E8EEC1A007E0702 /* top users list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "top users list.png"; path = "Images/top users list.png"; sourceTree = "<group>"; };
 		1FB5B96B1E86AF35008EFA23 /* Senses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB5B96E1E86AF35008EFA23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FB5B9731E86AF35008EFA23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +83,12 @@
 		1F796F381E86D0FE0060A2C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1F7BCFA51E8EEC1A007E0702 /* all users.png */,
+				1F7BCFA61E8EEC1A007E0702 /* create party.png */,
+				1F7BCFA71E8EEC1A007E0702 /* invitations list.png */,
+				1F7BCFA81E8EEC1A007E0702 /* party history.png */,
+				1F7BCFA91E8EEC1A007E0702 /* party listy.png */,
+				1F7BCFAA1E8EEC1A007E0702 /* top users list.png */,
 				1F796F361E86D0F50060A2C1 /* senses-logo.png */,
 			);
 			name = Images;
@@ -118,6 +138,7 @@
 				1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */,
 				1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */,
 				1FEDD4E81E8D8E7F00567E1C /* MenuViewController.swift */,
+				1F426D431E8EB066005D380C /* PartyInformationTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -215,10 +236,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7BCFAD1E8EEC1A007E0702 /* invitations list.png in Resources */,
 				1FB5B9791E86AF35008EFA23 /* LaunchScreen.storyboard in Resources */,
 				1F796F371E86D0F50060A2C1 /* senses-logo.png in Resources */,
 				1FB5B9761E86AF35008EFA23 /* Assets.xcassets in Resources */,
+				1F7BCFAF1E8EEC1A007E0702 /* party listy.png in Resources */,
+				1F7BCFAC1E8EEC1A007E0702 /* create party.png in Resources */,
+				1F7BCFB01E8EEC1A007E0702 /* top users list.png in Resources */,
 				1FB5B9741E86AF35008EFA23 /* Main.storyboard in Resources */,
+				1F7BCFAE1E8EEC1A007E0702 /* party history.png in Resources */,
+				1F7BCFAB1E8EEC1A007E0702 /* all users.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +265,7 @@
 				1FB5B96F1E86AF35008EFA23 /* AppDelegate.swift in Sources */,
 				1FEDD4E91E8D8E7F00567E1C /* MenuViewController.swift in Sources */,
 				1FD2E8BD1E89364600D902C7 /* HttpRequester.swift in Sources */,
+				1F426D441E8EB067005D380C /* PartyInformationTableViewController.swift in Sources */,
 				1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */,
 				1FD2E8BB1E8934FA00D902C7 /* SignInViewController.swift in Sources */,
 				1FD2E8BF1E89422400D902C7 /* HttpRequesterDelegateswift.swift in Sources */,

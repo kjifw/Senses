@@ -10,6 +10,7 @@ import Foundation
 
 class PartyDetailsModel{
     var name: String?
+    var uniqueId: String?
     var location: String?
     var startsAt: String?
     var host: String?
@@ -19,6 +20,7 @@ class PartyDetailsModel{
     var participantsList: [Any]?
     
     init(withName name: String,
+         id partyId: String,
          Location location: String,
          StartAt starts: String,
          withHost host: String,
@@ -28,6 +30,7 @@ class PartyDetailsModel{
          withParticipants participants: [Any]) {
         
         self.name = name
+        self.uniqueId = partyId
         self.location = location
         self.startsAt = starts
         self.host = host

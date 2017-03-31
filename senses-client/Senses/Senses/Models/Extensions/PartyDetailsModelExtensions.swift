@@ -22,6 +22,7 @@ extension PartyDetailsModel {
         }
         
         self.init(withName: item["name"] as! String,
+                  id: "\(item["uniqueId"]!)",
                   Location: item["location"] as! String,
                   StartAt: item["startDateTime"] as! String,
                   withHost: item["host"] as! String,

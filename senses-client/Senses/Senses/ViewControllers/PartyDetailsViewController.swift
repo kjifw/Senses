@@ -8,7 +8,21 @@
 
 import UIKit
 
-class PartyDetailsViewController: UIViewController {
+class PartyDetailsViewController: UIViewController, HttpRequesterDelegate {
+    
+    var url: String {
+        get {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelegate.baseUrl
+        }
+    }
+    
+    var http: HttpRequester? {
+        get {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelegate.http
+        }
+    }
 
     var party: PartyDetailsModel?
     
@@ -18,6 +32,9 @@ class PartyDetailsViewController: UIViewController {
     @IBOutlet weak var partyStartsAt: UILabel!
     @IBOutlet weak var partyType: UILabel!
     @IBOutlet weak var partyImage: UIImageView!
+    
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var rejectButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +48,122 @@ class PartyDetailsViewController: UIViewController {
         self.partyType.text = self.party?.partyType
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.http?.delegate = self
+        self.checkIfInvitedToParty()
+    }
+    
+    func checkIfInvitedToParty() {
+        let defaults = UserDefaults.standard
+        
+        self.acceptButton.isHidden = true
+        self.rejectButton.isHidden = true
+        
+        let invitationsList = defaults.array(forKey: "invitationsList") as! [String?]
+        let partyId = self.party?.uniqueId
+        
+        for item in invitationsList {
+            if(item == partyId) {
+                self.acceptButton.isHidden = false
+                self.rejectButton.isHidden = false
+                break
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func acceptInvitation() {
+        let defaults = UserDefaults.standard
+        
+        let bodyDict = [
+            "partyId": self.party?.uniqueId,
+            "inviteeUsername": defaults.string(forKey: "username")
+        ]
+        
+        let headers = [
+            "Content-Type": "application/json"
+        ]
+        
+        self.loadingScreenStart()
+        self.http?.post(toUrl: "\(self.url)/user/invitations/accept",
+            withBody: bodyDict,
+            andHeaders: headers)
+    }
+    
+    @IBAction func rejectInvitation() {
+        let defaults = UserDefaults.standard
+        
+        let bodyDict = [
+            "partyId": self.party?.uniqueId,
+            "inviteeUsername": defaults.string(forKey: "username")
+        ]
+        
+        let headers = [
+            "Content-Type": "application/json"
+        ]
+        
+        self.loadingScreenStart()
+        self.http?.post(toUrl: "\(self.url)/user/invitations/reject",
+            withBody: bodyDict,
+            andHeaders: headers)
+    }
+    
+    func didRecieveData(data: Any) {
+        DispatchQueue.main.async {
+            let defaults = UserDefaults.standard
+            
+            let invitationsList = defaults.array(forKey: "invitationsList") as! [String?]
+            let partyId = self.party?.uniqueId
+            
+            let updatedList = invitationsList.filter() { $0 != partyId}
+            
+            defaults.set(updatedList, forKey: "invitationsList")
+            defaults.synchronize()
+            
+            self.loadingScreenStop()
+            self.displayAlertMessage(withTitle: "Invitation to party",
+                                     andMessage: "Your response was submited successfully",
+                                     andHandler: {
+                                        (_) in
+                                        self.acceptButton.isHidden = true
+                                        self.rejectButton.isHidden = true
+                                        
+            })
+        }
+    }
+    
+    func didRecieveError(error: HttpError) {
+        DispatchQueue.main.async {
+            self.loadingScreenStop()
+            self.displayAlertMessage(withTitle: "Invitation to party",
+                                     andMessage: "Your response resulted in error",
+                                     andHandler: {
+                                        (_) in
+            })
+        }
+    }
+    
     @IBAction func viewParticipants() {
+        let nextVC = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "PartyListInformation") as! PartyInformationTableViewController
+        
+        nextVC.users =  self.party?.participantsList as! [String]
+        self.show(nextVC, sender: self)
+
     }
     
     @IBAction func viewInvitees() {
+        let nextVC = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "PartyListInformation") as! PartyInformationTableViewController
+        
+        nextVC.users =  self.party?.inviteesList as! [String]
+        self.show(nextVC, sender: self)
     }
-
     /*
     // MARK: - Navigation
 
@@ -51,5 +173,4 @@ class PartyDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

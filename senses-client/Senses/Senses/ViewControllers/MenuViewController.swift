@@ -14,6 +14,12 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let defaults = UserDefaults.standard
+        
+        print(defaults.string(forKey: "username")!)
+        print(defaults.string(forKey: "token")!)
+        print(defaults.array(forKey: "invitationsList")!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +27,8 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func returnToMenuViewController(segue: UIStoryboardSegue) {
+    }
 
     /*
     // MARK: - Navigation
