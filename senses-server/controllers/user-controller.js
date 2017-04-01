@@ -115,22 +115,20 @@ module.exports = function (data) {
             data.updateUserProfile(req.body.username, itemsToUpdate)
                 .then(user => {
                     return res.status(200).json({
-                        user: {
-                            username: user.username,
-                            email: user.email,
-                            picture: user.picture,
-                            city: user.city,
-                            age: user.age,
-                            gender: user.gender,
-                            position: user.position,
-                            about: user.about,
-                            kudos: user.kudos,
-                            notificationSetting: user.notificationSetting,
-                            dayNightSetting: user.dayNightSetting,
-                            partyHistory: user.partyHistory,
-                            invitationsList: user.invitationsList,
-                            genderPreferences: user.genderPreferences
-                        },
+                        username: user.username,
+                        email: user.email,
+                        picture: user.picture,
+                        city: user.city,
+                        age: user.age,
+                        gender: user.gender,
+                        position: user.position,
+                        about: user.about,
+                        kudos: user.kudos,
+                        notificationSetting: user.notificationSetting,
+                        dayNightSetting: user.dayNightSetting,
+                        partyHistory: user.partyHistory,
+                        invitationsList: user.invitationsList,
+                        genderPreferences: user.genderPreferences,
                         token: req.body.token
                     });
                 });
@@ -156,21 +154,35 @@ module.exports = function (data) {
         getUserDetails(req, res) {
             data.getUserByUsername(req.body.requiredUsername)
                 .then(user => {
+                    let genderPrefsToReturn = [];
+                    let invitationsListToReturn = [];
+                    let historyListToReturn = [];
+
+                    user.genderPreferences.forEach(item => {
+                        genderPrefsToReturn.push(item.gender)
+                    });
+
+                    user.invitationsList.forEach(item => {
+                        invitationsListToReturn.push(item.partyId);
+                    });
+
+                    user.partyHistory.forEach(item => {
+                        historyListToReturn.push(item.partyId);
+                    });
+
                     return res.status(200).json({
-                        user: {
-                            username: user.username,
-                            email: user.email,
-                            picture: user.picture,
-                            city: user.city,
-                            age: user.age,
-                            gender: user.gender,
-                            position: user.position,
-                            about: user.about,
-                            kudos: user.kudos,
-                            genderPreferences: user.genderPreferences,
-                            invitationsList: user.invitationsList,
-                            partyHistory: user.partyHistory
-                        },
+                        username: user.username,
+                        email: user.email,
+                        picture: user.picture,
+                        city: user.city,
+                        age: user.age,
+                        gender: user.gender,
+                        position: user.position,
+                        about: user.about,
+                        kudos: user.kudos,
+                        genderPreferences: genderPrefsToReturn,
+                        invitationsList: invitationsListToReturn,
+                        partyHistory: historyListToReturn,
                         token: req.body.token
                     });
                 });

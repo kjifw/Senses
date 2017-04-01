@@ -31,9 +31,7 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var gender: UITextField!
     @IBOutlet weak var genderPreferences: UITextField!
-    @IBOutlet weak var position: UITextField!
-    
-    @IBOutlet weak var usernameInfoLabel: UILabel!
+    @IBOutlet weak var aboutMe: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +52,7 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
         let age = self.age.text
         let gender = self.gender.text
         let genderPreferences = self.genderPreferences.text
+        let about = self.aboutMe.text
         
         let bodyDict = [
             "username": username,
@@ -61,7 +60,8 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
             "password": password,
             "age": age,
             "gender": gender,
-            "genderPreferences": genderPreferences
+            "genderPreferences": genderPreferences,
+            "about": about
         ]
         
         let headers = [
@@ -112,17 +112,6 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
             self.displayAlertMessage(withTitle: "Age", andMessage: "Age cannot be empty", andHandler: {
                 (_) in
             })
-        
-//            var currentAge = 0
-//            if(age != nil) {
-//                currentAge = Int(age!)!
-//            }
-//            
-//            if(currentAge < 18 || currentAge > 58) {
-//                self.displayAlertMessage(withTitle: "Age", andMessage: "Age must be between 18 and 58", andHandler: {
-//                    (_) in
-//                })
-//            }
             return false
         } else if (gender?.isEmpty)! {
             self.displayAlertMessage(withTitle: "Gender", andMessage: "Gender cannot be empty", andHandler: {

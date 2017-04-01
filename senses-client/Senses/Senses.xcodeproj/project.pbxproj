@@ -10,6 +10,14 @@
 		1F0534321E8996E000928A50 /* PartyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0534311E8996E000928A50 /* PartyListTableViewController.swift */; };
 		1F0C26461E8BEAAA000C1238 /* PartyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */; };
 		1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */; };
+		1F22D1A61E8FD82D0034A7AC /* TopUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A51E8FD82D0034A7AC /* TopUsersTableViewController.swift */; };
+		1F22D1A81E8FD85E0034A7AC /* AllUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A71E8FD85E0034A7AC /* AllUsersTableViewController.swift */; };
+		1F22D1AA1E8FD9A90034A7AC /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A91E8FD9A90034A7AC /* UserDetailsViewController.swift */; };
+		1F22D1AC1E8FDB120034A7AC /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1AB1E8FDB120034A7AC /* UserDetailsModel.swift */; };
+		1F22D1AE1E8FE0880034A7AC /* UserDetailsModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1AD1E8FE0880034A7AC /* UserDetailsModelExtensions.swift */; };
+		1F22D1B01E8FEB1E0034A7AC /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1AF1E8FEB1E0034A7AC /* UserListModel.swift */; };
+		1F22D1B21E8FEDBC0034A7AC /* UserListModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1B11E8FEDBC0034A7AC /* UserListModelExtensions.swift */; };
+		1F22D1B41E9027B60034A7AC /* UserListsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1B31E9027B60034A7AC /* UserListsTableViewController.swift */; };
 		1F426D441E8EB067005D380C /* PartyInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F426D431E8EB066005D380C /* PartyInformationTableViewController.swift */; };
 		1F796F371E86D0F50060A2C1 /* senses-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F796F361E86D0F50060A2C1 /* senses-logo.png */; };
 		1F7BCFAB1E8EEC1A007E0702 /* all users.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFA51E8EEC1A007E0702 /* all users.png */; };
@@ -37,6 +45,14 @@
 		1F0534311E8996E000928A50 /* PartyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyListTableViewController.swift; path = ViewControllers/PartyListTableViewController.swift; sourceTree = "<group>"; };
 		1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyDetailsViewController.swift; path = ViewControllers/PartyDetailsViewController.swift; sourceTree = "<group>"; };
 		1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPartyViewController.swift; path = ViewControllers/AddPartyViewController.swift; sourceTree = "<group>"; };
+		1F22D1A51E8FD82D0034A7AC /* TopUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopUsersTableViewController.swift; path = ViewControllers/TopUsersTableViewController.swift; sourceTree = "<group>"; };
+		1F22D1A71E8FD85E0034A7AC /* AllUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllUsersTableViewController.swift; path = ViewControllers/AllUsersTableViewController.swift; sourceTree = "<group>"; };
+		1F22D1A91E8FD9A90034A7AC /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = ViewControllers/UserDetailsViewController.swift; sourceTree = "<group>"; };
+		1F22D1AB1E8FDB120034A7AC /* UserDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsModel.swift; path = Models/UserDetailsModel.swift; sourceTree = "<group>"; };
+		1F22D1AD1E8FE0880034A7AC /* UserDetailsModelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsModelExtensions.swift; path = Models/Extensions/UserDetailsModelExtensions.swift; sourceTree = "<group>"; };
+		1F22D1AF1E8FEB1E0034A7AC /* UserListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListModel.swift; path = Models/UserListModel.swift; sourceTree = "<group>"; };
+		1F22D1B11E8FEDBC0034A7AC /* UserListModelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListModelExtensions.swift; path = Models/Extensions/UserListModelExtensions.swift; sourceTree = "<group>"; };
+		1F22D1B31E9027B60034A7AC /* UserListsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListsTableViewController.swift; path = ViewControllers/UserListsTableViewController.swift; sourceTree = "<group>"; };
 		1F426D431E8EB066005D380C /* PartyInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyInformationTableViewController.swift; path = ViewControllers/PartyInformationTableViewController.swift; sourceTree = "<group>"; };
 		1F796F361E86D0F50060A2C1 /* senses-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "senses-logo.png"; path = "Images/senses-logo.png"; sourceTree = "<group>"; };
 		1F7BCFA51E8EEC1A007E0702 /* all users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "all users.png"; path = "Images/all users.png"; sourceTree = "<group>"; };
@@ -139,6 +155,10 @@
 				1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */,
 				1FEDD4E81E8D8E7F00567E1C /* MenuViewController.swift */,
 				1F426D431E8EB066005D380C /* PartyInformationTableViewController.swift */,
+				1F22D1A51E8FD82D0034A7AC /* TopUsersTableViewController.swift */,
+				1F22D1A71E8FD85E0034A7AC /* AllUsersTableViewController.swift */,
+				1F22D1A91E8FD9A90034A7AC /* UserDetailsViewController.swift */,
+				1F22D1B31E9027B60034A7AC /* UserListsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -157,6 +177,8 @@
 			children = (
 				1FEDD4E51E8D459700567E1C /* Extensions */,
 				1FEDD4E31E8D41CC00567E1C /* PartyDetailsModel.swift */,
+				1F22D1AB1E8FDB120034A7AC /* UserDetailsModel.swift */,
+				1F22D1AF1E8FEB1E0034A7AC /* UserListModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -173,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				1FEDD4E61E8D45C000567E1C /* PartyDetailsModelExtensions.swift */,
+				1F22D1AD1E8FE0880034A7AC /* UserDetailsModelExtensions.swift */,
+				1F22D1B11E8FEDBC0034A7AC /* UserListModelExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -265,9 +289,17 @@
 				1FB5B96F1E86AF35008EFA23 /* AppDelegate.swift in Sources */,
 				1FEDD4E91E8D8E7F00567E1C /* MenuViewController.swift in Sources */,
 				1FD2E8BD1E89364600D902C7 /* HttpRequester.swift in Sources */,
+				1F22D1AE1E8FE0880034A7AC /* UserDetailsModelExtensions.swift in Sources */,
+				1F22D1B01E8FEB1E0034A7AC /* UserListModel.swift in Sources */,
+				1F22D1B21E8FEDBC0034A7AC /* UserListModelExtensions.swift in Sources */,
 				1F426D441E8EB067005D380C /* PartyInformationTableViewController.swift in Sources */,
+				1F22D1AA1E8FD9A90034A7AC /* UserDetailsViewController.swift in Sources */,
+				1F22D1A81E8FD85E0034A7AC /* AllUsersTableViewController.swift in Sources */,
 				1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */,
+				1F22D1A61E8FD82D0034A7AC /* TopUsersTableViewController.swift in Sources */,
 				1FD2E8BB1E8934FA00D902C7 /* SignInViewController.swift in Sources */,
+				1F22D1B41E9027B60034A7AC /* UserListsTableViewController.swift in Sources */,
+				1F22D1AC1E8FDB120034A7AC /* UserDetailsModel.swift in Sources */,
 				1FD2E8BF1E89422400D902C7 /* HttpRequesterDelegateswift.swift in Sources */,
 				1F0534321E8996E000928A50 /* PartyListTableViewController.swift in Sources */,
 			);

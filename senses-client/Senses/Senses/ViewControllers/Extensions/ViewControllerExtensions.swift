@@ -11,6 +11,7 @@ import UIKit
 var loadingScreen = UIActivityIndicatorView()
 
 extension UIViewController {
+    
     func displayAlertMessage(withTitle title: String, andMessage message: String, andHandler handler: @escaping ((UIAlertAction) -> Void)) {
         let alert = UIAlertController(title: title,
                                       message: message,

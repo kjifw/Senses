@@ -1,21 +1,46 @@
 //
-//  PartyInformationTableViewController.swift
+//  AllUsersTableViewController.swift
 //  Senses
 //
-//  Created by Jeff on 3/31/17.
+//  Created by Jeff on 4/1/17.
 //  Copyright © 2017 Telerik Academy. All rights reserved.
 //
 
 import UIKit
 
-class PartyInformationTableViewController: UITableViewController {
-
-    var users: [String] = []
+class AllUsersTableViewController: UITableViewController, HttpRequesterDelegate {
+    
+    var url: String {
+        get {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelegate.baseUrl
+        }
+    }
+    
+    var http: HttpRequester? {
+        get {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelegate.http
+        }
+    }
+    
+    var userList: [UserListModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "party-user-list-cell")
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.http?.delegate = self
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "all-user-list-cell")
+        
+        self.loadingScreenStart()
+        self.http?.get(fromUrl: "\(self.url)/user/list/all")
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,22 +57,38 @@ class PartyInformationTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.users.count
+        return self.userList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "party-user-list-cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "all-user-list-cell", for: indexPath)
 
-        cell.textLabel?.text = users[indexPath.row]
-
+        cell.textLabel?.text = self.userList[indexPath.row].username
+        
         return cell
+    }
+    
+    func didRecieveData(data: Any) {
+        DispatchQueue.main.async {
+            let listOfUsers = data as! Dictionary<String, Any>
+            if(listOfUsers["users"] != nil) {
+                let userDictArr = listOfUsers["users"] as! [Dictionary<String, Any>]
+                
+                userDictArr.forEach({ (item) in
+                    self.userList.append(UserListModel.init(withDict: item))
+                })
+            }
+            
+            self.tableView.reloadData()
+            self.loadingScreenStop()
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextVC = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(withIdentifier: "UserDetailsVC") as! UserDetailsViewController
         
-        nextVC.userUsername = self.users[indexPath.row]
+        nextVC.userUsername = self.userList[indexPath.row].username
         self.show(nextVC, sender: self)
     }
     

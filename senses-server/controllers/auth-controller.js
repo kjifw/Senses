@@ -26,17 +26,24 @@ module.exports = function (data) {
 
                     var token = jwt.encode({ username: req.body.username }, config.jwtSecret);
 
-                    let listToReturn = [];
+                    let invitationsListToReturn = [];
+                    let historyListToReturn = [];
 
                     user.invitationsList.forEach(item => {
-                        listToReturn.push(item.partyId);
+                        invitationsListToReturn.push(item.partyId);
                     });
+
+                    user.partyHistory.forEach(item => {
+                        historyListToReturn.push(item.partyId);
+                    })
 
                     data.getUserByUsername(req.body.username)
                         .then(dbUser => {
                             return res.status(200).json({
                                 username: req.user.username,
-                                invitationsList: listToReturn,
+                                latestPartyHosted: user.latestPartyHosted,
+                                invitationsList: invitationsListToReturn,
+                                historyList: historyListToReturn,
                                 token: token
                             });
                         });
@@ -53,7 +60,7 @@ module.exports = function (data) {
                 age: req.body.age,
                 gender: req.body.gender,
                 genderPreferences: req.body.genderPreferences,
-                // position: req.body.position,
+                about: req.body.about,
                 token: req.body.token
             }
 

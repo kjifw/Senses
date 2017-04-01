@@ -73,12 +73,20 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
             
             defaults.set(userCredentials["username"] as! String, forKey: "username")
             defaults.set(userCredentials["token"] as! String, forKey: "token")
+            defaults.set(userCredentials["latestPartyHosted"] as! String, forKey: "latestPartyHosted")
             
             if(userCredentials["invitationsList"] != nil) {
                 let invitationsList = userCredentials["invitationsList"] as! [String?]
                 defaults.set(invitationsList, forKey: "invitationsList")
             } else {
                 defaults.set([], forKey: "invitationsList")
+            }
+            
+            if(userCredentials["historyList"] != nil) {
+                let historyList = userCredentials["historyList"] as! [String?]
+                defaults.set(historyList, forKey: "historyList")
+            } else {
+                defaults.set([], forKey: "historyList")
             }
             
             defaults.synchronize()
