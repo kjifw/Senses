@@ -132,7 +132,6 @@ class PartyDetailsViewController: UIViewController, HttpRequesterDelegate {
                                         (_) in
                                         self.acceptButton.isHidden = true
                                         self.rejectButton.isHidden = true
-                                        
             })
         }
     }

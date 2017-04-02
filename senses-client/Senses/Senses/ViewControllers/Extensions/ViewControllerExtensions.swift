@@ -25,7 +25,7 @@ extension UIViewController {
     func loadingScreenStart() {
         loadingScreen.frame = self.view.frame
         loadingScreen.activityIndicatorViewStyle = .whiteLarge
-        loadingScreen.backgroundColor = .black//UIColor.init(red: 163, green: 202, blue: 255, alpha: 1.0)
+        loadingScreen.backgroundColor = .black
         
         self.view.addSubview(loadingScreen)
         loadingScreen.startAnimating()
