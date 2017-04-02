@@ -30,14 +30,6 @@ class MenuViewController: UIViewController, HttpRequesterDelegate {
         self.title = "Main menu"
         
         self.navigationItem.hidesBackButton = true
-        
-        let defaults = UserDefaults.standard
-        
-        print(defaults.string(forKey: "username")!)
-        print(defaults.string(forKey: "token")!)
-        print(defaults.string(forKey: "latestPartyHosted")!)
-        print(defaults.array(forKey: "invitationsList")!)
-        print(defaults.array(forKey: "historyList")!)
     }
     
     override func viewWillAppear(_ animated: Bool) {

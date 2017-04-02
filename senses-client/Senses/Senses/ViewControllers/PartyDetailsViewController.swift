@@ -23,7 +23,7 @@ class PartyDetailsViewController: UIViewController, HttpRequesterDelegate {
             return appDelegate.http
         }
     }
-
+    
     var party: PartyDetailsModel?
     
     @IBOutlet weak var partyName: UILabel!
@@ -172,13 +172,4 @@ class PartyDetailsViewController: UIViewController, HttpRequesterDelegate {
         nextVC.users =  self.party?.inviteesList as! [String]
         self.show(nextVC, sender: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }

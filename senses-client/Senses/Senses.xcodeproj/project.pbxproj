@@ -12,6 +12,8 @@
 		1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */; };
 		1F16D7131E91556100DF26D0 /* party-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F16D7111E91556100DF26D0 /* party-image.png */; };
 		1F16D7141E91556100DF26D0 /* user-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F16D7121E91556100DF26D0 /* user-image.png */; };
+		1F16D7171E919DD800DF26D0 /* PartyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16D7151E919DD700DF26D0 /* PartyListTableViewCell.swift */; };
+		1F16D7181E919DD800DF26D0 /* PartyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F16D7161E919DD700DF26D0 /* PartyListTableViewCell.xib */; };
 		1F22D1A61E8FD82D0034A7AC /* TopUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A51E8FD82D0034A7AC /* TopUsersTableViewController.swift */; };
 		1F22D1A81E8FD85E0034A7AC /* AllUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A71E8FD85E0034A7AC /* AllUsersTableViewController.swift */; };
 		1F22D1AA1E8FD9A90034A7AC /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A91E8FD9A90034A7AC /* UserDetailsViewController.swift */; };
@@ -21,6 +23,8 @@
 		1F22D1B21E8FEDBC0034A7AC /* UserListModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1B11E8FEDBC0034A7AC /* UserListModelExtensions.swift */; };
 		1F22D1B41E9027B60034A7AC /* UserListsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1B31E9027B60034A7AC /* UserListsTableViewController.swift */; };
 		1F426D441E8EB067005D380C /* PartyInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F426D431E8EB066005D380C /* PartyInformationTableViewController.swift */; };
+		1F58BAF71E91AB9000D5E79F /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F58BAF51E91AB9000D5E79F /* UserListTableViewCell.swift */; };
+		1F58BAF81E91AB9000D5E79F /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F58BAF61E91AB9000D5E79F /* UserListTableViewCell.xib */; };
 		1F796F371E86D0F50060A2C1 /* senses-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F796F361E86D0F50060A2C1 /* senses-logo.png */; };
 		1F7BCFAB1E8EEC1A007E0702 /* all users.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFA51E8EEC1A007E0702 /* all users.png */; };
 		1F7BCFAC1E8EEC1A007E0702 /* create party.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7BCFA61E8EEC1A007E0702 /* create party.png */; };
@@ -49,6 +53,8 @@
 		1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPartyViewController.swift; path = ViewControllers/AddPartyViewController.swift; sourceTree = "<group>"; };
 		1F16D7111E91556100DF26D0 /* party-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "party-image.png"; path = "Images/party-image.png"; sourceTree = "<group>"; };
 		1F16D7121E91556100DF26D0 /* user-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-image.png"; path = "Images/user-image.png"; sourceTree = "<group>"; };
+		1F16D7151E919DD700DF26D0 /* PartyListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyListTableViewCell.swift; path = CustomViews/PartyListTableViewCell.swift; sourceTree = "<group>"; };
+		1F16D7161E919DD700DF26D0 /* PartyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartyListTableViewCell.xib; path = CustomViews/PartyListTableViewCell.xib; sourceTree = "<group>"; };
 		1F22D1A51E8FD82D0034A7AC /* TopUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopUsersTableViewController.swift; path = ViewControllers/TopUsersTableViewController.swift; sourceTree = "<group>"; };
 		1F22D1A71E8FD85E0034A7AC /* AllUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllUsersTableViewController.swift; path = ViewControllers/AllUsersTableViewController.swift; sourceTree = "<group>"; };
 		1F22D1A91E8FD9A90034A7AC /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = ViewControllers/UserDetailsViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +64,8 @@
 		1F22D1B11E8FEDBC0034A7AC /* UserListModelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListModelExtensions.swift; path = Models/Extensions/UserListModelExtensions.swift; sourceTree = "<group>"; };
 		1F22D1B31E9027B60034A7AC /* UserListsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListsTableViewController.swift; path = ViewControllers/UserListsTableViewController.swift; sourceTree = "<group>"; };
 		1F426D431E8EB066005D380C /* PartyInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyInformationTableViewController.swift; path = ViewControllers/PartyInformationTableViewController.swift; sourceTree = "<group>"; };
+		1F58BAF51E91AB9000D5E79F /* UserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListTableViewCell.swift; path = CustomViews/UserListTableViewCell.swift; sourceTree = "<group>"; };
+		1F58BAF61E91AB9000D5E79F /* UserListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserListTableViewCell.xib; path = CustomViews/UserListTableViewCell.xib; sourceTree = "<group>"; };
 		1F796F361E86D0F50060A2C1 /* senses-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "senses-logo.png"; path = "Images/senses-logo.png"; sourceTree = "<group>"; };
 		1F7BCFA51E8EEC1A007E0702 /* all users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "all users.png"; path = "Images/all users.png"; sourceTree = "<group>"; };
 		1F7BCFA61E8EEC1A007E0702 /* create party.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "create party.png"; path = "Images/create party.png"; sourceTree = "<group>"; };
@@ -96,6 +104,10 @@
 		1F22D8DA1E86B69A007E3B06 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				1F16D7151E919DD700DF26D0 /* PartyListTableViewCell.swift */,
+				1F16D7161E919DD700DF26D0 /* PartyListTableViewCell.xib */,
+				1F58BAF51E91AB9000D5E79F /* UserListTableViewCell.swift */,
+				1F58BAF61E91AB9000D5E79F /* UserListTableViewCell.xib */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -267,12 +279,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7BCFAD1E8EEC1A007E0702 /* invitations list.png in Resources */,
+				1F16D7181E919DD800DF26D0 /* PartyListTableViewCell.xib in Resources */,
 				1FB5B9791E86AF35008EFA23 /* LaunchScreen.storyboard in Resources */,
 				1F796F371E86D0F50060A2C1 /* senses-logo.png in Resources */,
 				1FB5B9761E86AF35008EFA23 /* Assets.xcassets in Resources */,
 				1F7BCFAF1E8EEC1A007E0702 /* party listy.png in Resources */,
 				1F7BCFAC1E8EEC1A007E0702 /* create party.png in Resources */,
 				1F7BCFB01E8EEC1A007E0702 /* top users list.png in Resources */,
+				1F58BAF81E91AB9000D5E79F /* UserListTableViewCell.xib in Resources */,
 				1FB5B9741E86AF35008EFA23 /* Main.storyboard in Resources */,
 				1F16D7141E91556100DF26D0 /* user-image.png in Resources */,
 				1F7BCFAE1E8EEC1A007E0702 /* party history.png in Resources */,
@@ -292,6 +306,7 @@
 				1FEDD4E71E8D45C000567E1C /* PartyDetailsModelExtensions.swift in Sources */,
 				1FEDD4E41E8D41CC00567E1C /* PartyDetailsModel.swift in Sources */,
 				1F0C26461E8BEAAA000C1238 /* PartyDetailsViewController.swift in Sources */,
+				1F58BAF71E91AB9000D5E79F /* UserListTableViewCell.swift in Sources */,
 				1FD2E8C51E896F2300D902C7 /* StartUpViewController.swift in Sources */,
 				1FD2E8B91E8934C100D902C7 /* RegisterViewController.swift in Sources */,
 				1FB5B96F1E86AF35008EFA23 /* AppDelegate.swift in Sources */,
@@ -306,6 +321,7 @@
 				1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */,
 				1F22D1A61E8FD82D0034A7AC /* TopUsersTableViewController.swift in Sources */,
 				1FD2E8BB1E8934FA00D902C7 /* SignInViewController.swift in Sources */,
+				1F16D7171E919DD800DF26D0 /* PartyListTableViewCell.swift in Sources */,
 				1F22D1B41E9027B60034A7AC /* UserListsTableViewController.swift in Sources */,
 				1F22D1AC1E8FDB120034A7AC /* UserDetailsModel.swift in Sources */,
 				1FD2E8BF1E89422400D902C7 /* HttpRequesterDelegateswift.swift in Sources */,
