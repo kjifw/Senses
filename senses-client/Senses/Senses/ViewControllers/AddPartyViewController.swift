@@ -38,6 +38,8 @@ class AddPartyViewController: UIViewController, HttpRequesterDelegate, CLLocatio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Add sex party"
+        
         self.http?.delegate = self
         
         self.imagePicker.delegate = self
@@ -97,6 +99,14 @@ class AddPartyViewController: UIViewController, HttpRequesterDelegate, CLLocatio
     
     func didRecieveData(data: Any) {
         DispatchQueue.main.async {
+            let defaults = UserDefaults.standard
+            let partyFullData = data as! Dictionary<String, Any>
+            let partyData = partyFullData["party"] as! Dictionary<String, Any>
+            
+            if(partyData["uniqueId"] != nil) {
+                defaults.set("\(partyData["uniqueId"]!)", forKey: "latestPartyHosted")
+            }
+            
             self.loadingScreenStop()
             self.displayAlertMessage(withTitle: "Party Created!", andMessage: "Party was successfully created!", andHandler: {
                 (_) in

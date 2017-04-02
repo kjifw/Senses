@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class RegisterViewController: UIViewController, HttpRequesterDelegate {
+class RegisterViewController: UIViewController, HttpRequesterDelegate, CLLocationManagerDelegate {
     
     var url: String {
         get {
@@ -32,18 +33,48 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
     @IBOutlet weak var gender: UITextField!
     @IBOutlet weak var genderPreferences: UITextField!
     @IBOutlet weak var aboutMe: UITextField!
+    @IBOutlet weak var city: UITextField!
+    
+    private var locationManger: CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Register"
+        
         self.http?.delegate = self
+        
+        self.locationManger.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManger.delegate = self
+        self.locationManger.requestWhenInUseAuthorization()
+        self.locationManger.startUpdatingLocation()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let latestLocation: CLLocation = locations[locations.count - 1]
+        
+        let geocoder: CLGeocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(latestLocation, completionHandler: {
+            (placemarks, error) in
+            
+            if(error == nil && (placemarks?.count)! > 0) {
+                let last = placemarks?.last
+                let city: String = "\(last!.addressDictionary!["City"]!)"
+                
+                self.city.text = city
+            }
+        })
+        
+        self.locationManger.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    }
     
     @IBAction func register() {
         let username = self.username.text
@@ -53,6 +84,7 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
         let gender = self.gender.text
         let genderPreferences = self.genderPreferences.text
         let about = self.aboutMe.text
+        let city = self.city.text
         
         let bodyDict = [
             "username": username,
@@ -61,7 +93,8 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
             "age": age,
             "gender": gender,
             "genderPreferences": genderPreferences,
-            "about": about
+            "about": about,
+            "city": city
         ]
         
         let headers = [
@@ -82,6 +115,7 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
         let age = self.age.text
         let gender = self.gender.text
         let genderPreferences = self.genderPreferences.text
+        let city = self.city.text
         
         if (username?.isEmpty)! {
             self.displayAlertMessage(withTitle: "Username", andMessage: "Username cannot be empty", andHandler: {
@@ -120,6 +154,11 @@ class RegisterViewController: UIViewController, HttpRequesterDelegate {
             return false
         } else if (genderPreferences?.isEmpty)! {
             self.displayAlertMessage(withTitle: "Gender Preferences", andMessage: "Gender preferences cannot be empty", andHandler: {
+                (_) in
+            })
+            return false
+        } else if (city?.isEmpty)! {
+            self.displayAlertMessage(withTitle: "City", andMessage: "City cannot be empty", andHandler: {
                 (_) in
             })
             return false

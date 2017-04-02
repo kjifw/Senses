@@ -29,6 +29,7 @@ class SignInViewController: UIViewController, HttpRequesterDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Sign In"
     }
     
     override func viewDidAppear(_ animated: Bool) {

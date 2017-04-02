@@ -10,6 +10,8 @@
 		1F0534321E8996E000928A50 /* PartyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0534311E8996E000928A50 /* PartyListTableViewController.swift */; };
 		1F0C26461E8BEAAA000C1238 /* PartyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */; };
 		1F0C264C1E8C1746000C1238 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */; };
+		1F16D7131E91556100DF26D0 /* party-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F16D7111E91556100DF26D0 /* party-image.png */; };
+		1F16D7141E91556100DF26D0 /* user-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F16D7121E91556100DF26D0 /* user-image.png */; };
 		1F22D1A61E8FD82D0034A7AC /* TopUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A51E8FD82D0034A7AC /* TopUsersTableViewController.swift */; };
 		1F22D1A81E8FD85E0034A7AC /* AllUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A71E8FD85E0034A7AC /* AllUsersTableViewController.swift */; };
 		1F22D1AA1E8FD9A90034A7AC /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F22D1A91E8FD9A90034A7AC /* UserDetailsViewController.swift */; };
@@ -45,6 +47,8 @@
 		1F0534311E8996E000928A50 /* PartyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyListTableViewController.swift; path = ViewControllers/PartyListTableViewController.swift; sourceTree = "<group>"; };
 		1F0C26451E8BEAAA000C1238 /* PartyDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyDetailsViewController.swift; path = ViewControllers/PartyDetailsViewController.swift; sourceTree = "<group>"; };
 		1F0C264B1E8C1746000C1238 /* AddPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPartyViewController.swift; path = ViewControllers/AddPartyViewController.swift; sourceTree = "<group>"; };
+		1F16D7111E91556100DF26D0 /* party-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "party-image.png"; path = "Images/party-image.png"; sourceTree = "<group>"; };
+		1F16D7121E91556100DF26D0 /* user-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-image.png"; path = "Images/user-image.png"; sourceTree = "<group>"; };
 		1F22D1A51E8FD82D0034A7AC /* TopUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopUsersTableViewController.swift; path = ViewControllers/TopUsersTableViewController.swift; sourceTree = "<group>"; };
 		1F22D1A71E8FD85E0034A7AC /* AllUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllUsersTableViewController.swift; path = ViewControllers/AllUsersTableViewController.swift; sourceTree = "<group>"; };
 		1F22D1A91E8FD9A90034A7AC /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = ViewControllers/UserDetailsViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 		1F796F381E86D0FE0060A2C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1F16D7111E91556100DF26D0 /* party-image.png */,
+				1F16D7121E91556100DF26D0 /* user-image.png */,
 				1F7BCFA51E8EEC1A007E0702 /* all users.png */,
 				1F7BCFA61E8EEC1A007E0702 /* create party.png */,
 				1F7BCFA71E8EEC1A007E0702 /* invitations list.png */,
@@ -268,7 +274,9 @@
 				1F7BCFAC1E8EEC1A007E0702 /* create party.png in Resources */,
 				1F7BCFB01E8EEC1A007E0702 /* top users list.png in Resources */,
 				1FB5B9741E86AF35008EFA23 /* Main.storyboard in Resources */,
+				1F16D7141E91556100DF26D0 /* user-image.png in Resources */,
 				1F7BCFAE1E8EEC1A007E0702 /* party history.png in Resources */,
+				1F16D7131E91556100DF26D0 /* party-image.png in Resources */,
 				1F7BCFAB1E8EEC1A007E0702 /* all users.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

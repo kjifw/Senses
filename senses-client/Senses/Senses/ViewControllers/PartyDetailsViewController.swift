@@ -46,6 +46,13 @@ class PartyDetailsViewController: UIViewController, HttpRequesterDelegate {
         self.partyHost.text = self.party?.host
         self.partyStartsAt.text = self.party?.startsAt
         self.partyType.text = self.party?.partyType
+        
+        if(self.party?.image != nil && self.party?.image != "") {
+            let imageData = Data(base64Encoded: (self.party?.image)!)
+            self.partyImage.image = UIImage(data: imageData! as Data)
+        } else {
+            self.partyImage.image = UIImage(named: "party-image")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,9 +80,7 @@ class PartyDetailsViewController: UIViewController, HttpRequesterDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
     
     @IBAction func acceptInvitation() {
         let defaults = UserDefaults.standard
@@ -118,11 +123,15 @@ class PartyDetailsViewController: UIViewController, HttpRequesterDelegate {
             let defaults = UserDefaults.standard
             
             let invitationsList = defaults.array(forKey: "invitationsList") as! [String?]
+            var historyUpdatedList = defaults.array(forKey: "historyList") as! [String?]
+            
             let partyId = self.party?.uniqueId
             
             let updatedList = invitationsList.filter() { $0 != partyId}
+            historyUpdatedList.append(partyId)
             
             defaults.set(updatedList, forKey: "invitationsList")
+            defaults.set(historyUpdatedList, forKey: "historyList")
             defaults.synchronize()
             
             self.loadingScreenStop()

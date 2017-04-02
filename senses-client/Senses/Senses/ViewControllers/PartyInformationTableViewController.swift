@@ -14,13 +14,14 @@ class PartyInformationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Users list"
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "party-user-list-cell")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source

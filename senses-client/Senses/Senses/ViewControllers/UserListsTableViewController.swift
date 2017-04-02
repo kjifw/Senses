@@ -31,6 +31,8 @@ class UserListsTableViewController: UITableViewController, HttpRequesterDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "User parties"
+        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "user-lists-list-cell")
     }
 

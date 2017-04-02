@@ -27,6 +27,8 @@ class MenuViewController: UIViewController, HttpRequesterDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Main menu"
+        
         self.navigationItem.hidesBackButton = true
         
         let defaults = UserDefaults.standard

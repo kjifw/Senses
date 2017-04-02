@@ -61,6 +61,7 @@ module.exports = function (data) {
                 gender: req.body.gender,
                 genderPreferences: req.body.genderPreferences,
                 about: req.body.about,
+                city: req.body.city,
                 token: req.body.token
             }
 

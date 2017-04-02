@@ -28,11 +28,8 @@ class PartyListTableViewController: UITableViewController, HttpRequesterDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        self.title = "Party List"
+        self.title = "Parties list"
         
         self.loadingScreenStart()
         

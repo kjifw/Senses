@@ -29,11 +29,8 @@ class TopUsersTableViewController: UITableViewController, HttpRequesterDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.title = "Top users"
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.http?.delegate = self
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "top-user-list-cell")
